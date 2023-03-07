@@ -1,4 +1,3 @@
-# LATIHAN4DPBO2023
 ### Saya Muhammad Yusuf Bahtiar NIM 2107980 mengerjakan Latihan 4 dalam mata kuliah Desain dan Pemrograman Berorientasi Objek untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin.
 
 <br>
@@ -15,29 +14,50 @@ Buatlah program berbasis OOP menggunakan bahasa pemrograman C++ dan Python  yang
 <br>
 
 ## Desain Program
-![Desain](https://user-images.githubusercontent.com/100776170/220320126-5fe81cac-e95d-4919-bbc4-feab20debebf.jpg)
+![Desain](https://user-images.githubusercontent.com/100776170/223378730-e6900d05-cf73-41cb-b41b-b681a752a7e6.png)
 
-Program didesain menjadi 3 class :
+Program didesain menjadi 6 class :
 * *Human* sebagai super class, dalam class ini terdapat 3 atribut diantaranya:
   + identity -> berisikan NIK Mahasiswa, bertipe data `default : long long`
   + name     -> berisikan Nama Mahasiswa, bertipe data `string`
   + gender   -> berisikan Jenis Kelamin Mahasiswa, bertipe data `character`
   
   Tiap atribut memiliki setter dan getternya masing-masing yang berada pada class `Human`.
-  
-* *CivitasAcademica* sebagai sub class dari class Human (Civitas Academica menjadi intermediary class), dalam class ini terdapat 2 atribut diantaranya :
+
+* *CivitasAcademic* sebagai sub class dari class Human (CivitasAcademic menjadi intermediary class), dalam class ini terdapat 3 atribut diantaranya :
   + university -> berisikan Universitas Asal, bertipe data `string`
+  + faculty    -> berisikan Fakultas, bertipe data `string`
   + email      -> berisikan Email Mahasiswa, bertipe data `string`
 
-  Tiap atribut memiliki setter dan getternya masing-masing yang berada pada class `Civitas Academica`.
+  Tiap atribut memiliki setter dan getternya masing-masing yang berada pada class `CivitasAcademic`.
 
-* *Student* sebagai sub class dari class Civitas Academica, dalam class ini terdapat 3 atribut dan 4 method diantaranya :
-  + idNumber -> berisikan NIM Mahasiswa, bertipe data `integer`
-  + major    -> berisikan Jurusan Mahasiswa, bertipe data `string`
-  + faculty  -> berisikan Fakultas Mahasiswa, bertipe data `string`
+* *Student* sebagai sub class dari class CivitasAcademic, dalam class ini terdapat 2 atribut diantaranya :
+  + idNumber    -> berisikan NIM Mahasiswa, bertipe data `integer`
+  + majorObject -> berisikan sesuai atribut yang terdapat di dalam class Major, bertipe data `object`
 
   Tiap atribut memiliki setter dan getternya masing-masing yang berada pada class `Student`. 
 
+* *Lecturer* sebagai sub class dari class CivitasAcademic, dalam class ini terdapat 4 atribut diantaranya :
+  + offRegNumber      -> berisikan NIP Dosen, bertipe data `integer`
+  + teritaryEducation -> berisikan Pendidikan Terakhir Dosen, bertipe data `string`
+  + proficiency       -> berisikan Keahlian Dosen, bertipe data `string`
+  + majorObject -> berisikan sesuai atribut yang terdapat di dalam class Major, bertipe data `object`
+
+  Tiap atribut memiliki setter dan getternya masing-masing yang berada pada class `Lecturer`. 
+
+* *Major* sebagai composite dari class Student dan Lecturer, dalam class ini terdapat 4 atribut diantaranya :
+  + majorName    -> berisikan Nama Program Studi Mahasiswa/Dosen, bertipe data `string`
+  + code         -> berisikan Kode Program Studi, bertipe data `string`
+  + indexCourse  -> berisikan Keahlian Dosen, bertipe data `int`
+  + courseObject -> berisikan sesuai atribut yang terdapat di dalam class Course, bertipe data `object`
+
+  Tiap atribut memiliki setter dan getternya masing-masing yang berada pada class `Major`.
+
+* *Course* sebagai composite dari class Major (Sekaligus class Student dan class Lecturer), dalam class ini terdapat 1 atribut, yaitu :
+  + courseName    -> berisikan Nama Mata Kuliah yang dikontrak oleh Mahasiswa/diampu oleh Dosen, bertipe data `string`
+
+  Atribut tersebut memiliki setter dan getter yang berada pada class `Course`.
+  
 
 Selain itu, di dalam class `Student` juga terdapat beberapa method untuk memproses data mahasiswa, diantaranya ialah addStudentData untuk menambahkan data, updateStudentData untuk melakukan perubahan terhadap data, deleteStudentData untuk menghapus data dari daftar, dan showListOfStudent untuk menampilkan daftar data mahasiswa.
 
