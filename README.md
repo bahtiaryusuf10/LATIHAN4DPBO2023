@@ -48,7 +48,7 @@ Program didesain menjadi 6 class :
 * *Major* sebagai composite dari class Student dan Lecturer, dalam class ini terdapat 4 atribut diantaranya :
   + majorName    -> berisikan Nama Program Studi Mahasiswa/Dosen, bertipe data `string`
   + code         -> berisikan Kode Program Studi, bertipe data `string`
-  + indexCourse  -> berisikan Keahlian Dosen, bertipe data `int`
+  + indexCourse  -> berisikan index array course (mata kuliah), bertipe data `int`
   + courseObject -> berisikan sesuai atribut yang terdapat di dalam class Course, bertipe data `object`
 
   Tiap atribut memiliki setter dan getternya masing-masing yang berada pada class `Major`.
@@ -59,34 +59,14 @@ Program didesain menjadi 6 class :
   Atribut tersebut memiliki setter dan getter yang berada pada class `Course`.
   
 
-Selain itu, di dalam class `Student` juga terdapat beberapa method untuk memproses data mahasiswa, diantaranya ialah addStudentData untuk menambahkan data, updateStudentData untuk melakukan perubahan terhadap data, deleteStudentData untuk menghapus data dari daftar, dan showListOfStudent untuk menampilkan daftar data mahasiswa.
+Dalam tugas ini saya mendesain program dengan menggunakan jenis inheritance : `multi-level` dengan urutan *Human* => *CivitasAcademic* => *Student* dan *Human* => *CivitasAcademic* => *Lecturer*, karena menurut saya sivitas akademik merupakan sekumpulan manusia yang memiliki posisinya masing-masing, contohnya di sini terdapat kumpulan dosen dan kumpulan mahasiswa. Oleh karena itu, penggunaan multi-level sudah cukup baik untuk kondisi yang ada. 
 
-Jika diasumsikan 1 class merupakan 1 tabel, maka terdapat primary key di masing-masing tabel tersebut diantaranya :
-* *Human* -> identity
-* *CivitasAcademic* -> email
-* *Human* -> idNumber
-
-Oleh sebab itu, ketika pengguna ingin mengubah record data mahasiswa pilihan atribut yang dapat diubah terbatas yakni university, email, major, dan faculty. Meskipun atribut email dikatergorikan atribut yang dapat diubah, tetapi akan dilakukan pengecekkan apakah email baru sudah digunakan atau belum oleh mahasiswa lain. 
-
-Dalam tugas ini saya mendesain program dengan menggunakan jenis inheritance : `multi-level` dengan urutan *Human* => *CivitasAcademic* => *Student* , karena menurut saya sivitas akademik merupakan sekumpulan manusia yang memiliki posisinya masing-masing, seperti kumpulan dosen, kumpulan mahasiswa, kumpulan staff keuangan, dan lain sebagainya. Oleh karena itu, penggunaan multi-level sudah dirasa pas dengan kondisi yang ada.
+Selain itu, sehubungan dengan apa yang diinginkan pada soal, saya membuat beberapa atribut komposit dari beberapa class, yakni class *Major* dan class *Course*. Saya memiliki argumen bahwa seorang dosen dan seorang mahasiswa pasti akan memiliki masing-masing 1 program studi dalam suatu universitas, tidak hanya itu, karena dalam suatu program studi umumnya memiliki berbagai mata kuliah yang akan dibentuk menjadi suatu kurikulum, maka perlu untuk membuat array untuk menampung list nama mata kuliah yang akan diampu oleh dosen dan dikontrak oleh mahasiswa.
 
 <br>
 
 ## Alur Program
-*Pada umumnya, semua program yang dibuat memiliki alur yang sama, hanya saja pada source code Php tidak tersedia menu input dari pengguna (data diinput secara hardcode).*
-
-Pertama program akan membersihkan terlebih dahulu terminal, lalu akan menampilkan menu CRUD yang dapat dipilih oleh pengguna. Pengguna akan diminta untuk memasukan perintah pilihannya dan jika program sudah selesai menjalankan perintah maka proses (inputan untuk pemilihan menu) akan dijalankan berulang sampai pengguna menginput perintah untuk mengakhiiri program. 
-Kelima perintahnya yaitu:
-* Masukan (0) untuk keluar dari program program.
-Jika pengguna menjalankan perintah ini maka program akan langsung keluar.
-* Masukan (1) untuk menjalankan perintah `addStudentData`
-Jika pengguna menjalankan perintah ini maka program akan meminta pengguna untuk menginputkan serangakian data mahasiswa, yaitu nik, nama, jenis kelamin, universitas, email, nim, program studi dan fakultas. Lalu, sebelum ditambah ke list, program akan melakukan pengecekan terlebih dahulu apakah list dalam keadaan kosong atau tidak. Proses pengecekkan dilakukan menggunakan nik/email/nim yang akan ditambah ke dalam list, jika nik/email/nim sudah tersedia di dalam list maka program akan mengeluarkan error handling dan data tidak akan diinput ke list.
-* Masukan (2) untuk menjalankan perintah `updateStudentData`
-Jika pengguna menjalankan perintah ini maka program akan meminta pengguna untuk menginput nik mahasiswa yang datanya akan diubah, jika nim tersedia pada list maka program akan meminta user menginputkan data mahasiswa yang baru yakni universita, email, program studi, dan fakultas, tidak dengan nik karena berkedudukan sebagai primary key. Jika nik tidak tersedia maka akan mengeluarkan error handling.
-* Masukan (3) untuk menjalankan perintah `deleteStudentData`
-Jika pengguna menjalankan perintah ini maka program akan meminta pengguna untuk menginput nik mahasiswa yang datanya akan dihapus, jika nik tersedia maka data tersebut akan dihapus dari list, tetapi jika data nik tidak tersedia pada list maka akan mengeluarkan error handling.
-* Masukan (4) untuk menjalankan perintah `showListOfStudents`
-Jika pengguna menjalankan perintah ini maka program akan menampilkan semua data mahasiswa yang ada pada list dalam bentuk tabel sederhana ke layar.
+Kedua program, baik itu python maupun c++ dibuat dengan memiliki alur yang sama, yakni data diinput secara hardcode. Sehingga, pengguna cukup menjalankan atau mengkompilasi saja filenya, maka system akan menampilkan semua data mahasiswa dan dosen yang ada pada listMahasiswa dan listDosen ke layar.
 
 <br>
 
